@@ -1,0 +1,1422 @@
+{
+  "meta": {
+    "title": "HP Apple Spray Schedule — Master Dataset",
+    "source": "Department of Horticulture, Himachal Pradesh + Dr. YS Parmar University of Horticulture and Forestry, Nauni, Solan",
+    "primary_year": 2026,
+    "years_covered": [
+      2023,
+      2024,
+      2025,
+      2026
+    ],
+    "reference_international": "WSU Extension Spokane County C041 (Washington State, USA)",
+    "last_updated": "June 2026",
+    "notes": [
+      "All doses are per 200 litres of water unless stated otherwise",
+      "Schedule is for NORMAL weather conditions — see weather_rules for adjustments",
+      "Chemicals marked proposed_ban:true are under Gazette Notification CG-DL-E-18052020-219423",
+      "Dimethoate, Malathion, Monocrotophos already formally removed from approved usage (Sept 2023)",
+      "April–June: minimise insecticide sprays to protect Lady bird beetles, Syrphid flies and other beneficial insects"
+    ]
+  },
+  "proposed_ban_list": {
+    "gazette_notification": "CG-DL-E-18052020-219423, dated 18 May 2020",
+    "already_removed_sept2023": [
+      "Dimethoate",
+      "Malathion",
+      "Monocrotophos"
+    ],
+    "proposed": [
+      "Captan",
+      "Carbendazim",
+      "Chlorpyriphos",
+      "Mancozeb",
+      "Thiophanate Methyl",
+      "Ziram",
+      "Zineb (Zenab)"
+    ],
+    "app_guidance": "Always show a non-banned alternative alongside any banned chemical. Flag clearly in UI."
+  },
+  "growth_stages": [
+    {
+      "stage_id": "dormant_half_inch",
+      "stage_number": 0,
+      "stage_name": "Half-Inch Green Tip (Dormant)",
+      "visual_description": "Bud scales just separating, first green tissue barely visible — less than half an inch",
+      "approximate_calendar": "Late January – mid February (varies 2–3 weeks by altitude)",
+      "altitude_note": "Higher zones (2400m+) break dormancy 3–4 weeks later than lower belts",
+      "pest_sprays": [
+        {
+          "active_ingredient": "Horticultural Mineral Oil (HMO)",
+          "dose_per_200L": "4 litres",
+          "targets": [
+            "San Jose Scale",
+            "Mites"
+          ],
+          "pre_harvest_interval_days": null,
+          "proposed_ban": false,
+          "brand_names": [
+            "HP Spray Oil E (HPCL)",
+            "Servo Oil (Indian Oil Corporation)"
+          ],
+          "special_notes": "Most important single spray of the season for scale control. Spray when daytime temp 10–15°C, no frost forecast. Avoid if rain expected within 12 hours.",
+          "wsu_insight": "WSU: 'This is the most important stage and chemical spray to control pests.' Apply at delayed dormant stage when daytime temp 45–55°F (7–13°C)."
+        }
+      ],
+      "disease_sprays": []
+    },
+    {
+      "stage_id": "green_tip",
+      "stage_number": 1,
+      "stage_name": "Green Tip",
+      "visual_description": "Green tissue clearly visible at bud tip, about 0.5–1 cm exposed",
+      "approximate_calendar": "February – early March",
+      "disease_sprays": [
+        {
+          "active_ingredient": "Captan 50 WP",
+          "dose_per_200L": "600 gm",
+          "targets": [
+            "Scab"
+          ],
+          "pre_harvest_interval_days": null,
+          "proposed_ban": true,
+          "ban_alternatives": [
+            "Fluxapyroxad 75g/l + Difenoconazole 50g/l SC",
+            "Dodine 65 WP"
+          ],
+          "brand_names": [
+            "Captaf",
+            "Captax",
+            "Capgold",
+            "Dhanutan",
+            "Kohicap",
+            "Masstan"
+          ],
+          "special_notes": "Avoid 15 days before and after oil spray. PROPOSED BAN — prefer alternatives.",
+          "added_year": 2023
+        },
+        {
+          "active_ingredient": "Dodine 65 WP",
+          "dose_per_200L": "200 gm",
+          "targets": [
+            "Scab"
+          ],
+          "pre_harvest_interval_days": 21,
+          "proposed_ban": false,
+          "brand_names": [
+            "Superstar",
+            "Syllit",
+            "Himdin",
+            "Tohfa",
+            "Noor"
+          ],
+          "special_notes": "DO NOT spray if temperature above 30°C and slow drying conditions prevail. Do not mix with other pesticides. Do not use with hard water.",
+          "weather_locked": {
+            "condition": "temp_above_30c",
+            "action": "suppress_from_recommendations"
+          },
+          "added_year": 2023
+        },
+        {
+          "active_ingredient": "Ziram 27% SC",
+          "dose_per_200L": "600 ml",
+          "targets": [
+            "Scab"
+          ],
+          "pre_harvest_interval_days": null,
+          "proposed_ban": true,
+          "ban_alternatives": [
+            "Fluxapyroxad 75g/l + Difenoconazole 50g/l SC"
+          ],
+          "brand_names": [
+            "Cuman L"
+          ],
+          "special_notes": "PROPOSED BAN — prefer alternatives.",
+          "added_year": 2023
+        },
+        {
+          "active_ingredient": "Fluxapyroxad 75g/l + Difenoconazole 50g/l SC",
+          "dose_per_200L": "60 ml",
+          "targets": [
+            "Scab",
+            "Powdery Mildew"
+          ],
+          "pre_harvest_interval_days": null,
+          "proposed_ban": false,
+          "brand_names": [
+            "Sercadis Plus 12.5 SC"
+          ],
+          "special_notes": "PREFERRED non-banned option for Green Tip. Dual action on Scab and Powdery Mildew.",
+          "added_year": 2023
+        }
+      ],
+      "pest_sprays": []
+    },
+    {
+      "stage_id": "pink_bud",
+      "stage_number": 2,
+      "stage_name": "Pink Bud",
+      "visual_description": "Flower buds showing pink colour, just before flowers open fully",
+      "approximate_calendar": "March – early April",
+      "disease_sprays": [
+        {
+          "active_ingredient": "Mancozeb 75 WP",
+          "dose_per_200L": "600 gm",
+          "targets": [
+            "Scab"
+          ],
+          "pre_harvest_interval_days": null,
+          "proposed_ban": true,
+          "ban_alternatives": [
+            "Propineb 70 WP",
+            "Difenoconazole 25 EC"
+          ],
+          "brand_names": [
+            "Indofil M-45",
+            "Dithane M-45",
+            "Mass M-45",
+            "Kohinoor M-45",
+            "Dhanuka M-45",
+            "Abic M-45",
+            "Emthane M-45",
+            "Uthane M-45",
+            "Hindustan M-45",
+            "Gold M-45",
+            "Marlett M-45"
+          ],
+          "special_notes": "PROPOSED BAN — most commonly used but heading for removal.",
+          "added_year": 2023
+        },
+        {
+          "active_ingredient": "Propineb 70 WP",
+          "dose_per_200L": "600 gm",
+          "targets": [
+            "Scab"
+          ],
+          "pre_harvest_interval_days": 30,
+          "proposed_ban": false,
+          "brand_names": [
+            "Antracol",
+            "Aaroosh",
+            "Scale 70WP"
+          ],
+          "special_notes": "Best non-banned alternative to Mancozeb at Pink Bud.",
+          "added_year": 2023
+        },
+        {
+          "active_ingredient": "Difenoconazole 25 EC",
+          "dose_per_200L": "30 ml",
+          "targets": [
+            "Scab"
+          ],
+          "pre_harvest_interval_days": 14,
+          "proposed_ban": false,
+          "brand_names": [
+            "Score",
+            "Scale",
+            "Dizole",
+            "Rubigan D",
+            "Karara"
+          ],
+          "added_year": 2023
+        },
+        {
+          "active_ingredient": "Hexaconazole 4% + Zineb 68% WP",
+          "dose_per_200L": "500 gm",
+          "targets": [
+            "Scab",
+            "Powdery Mildew",
+            "Core Rot"
+          ],
+          "pre_harvest_interval_days": 30,
+          "proposed_ban": false,
+          "brand_names": [
+            "Avtaar"
+          ],
+          "special_notes": "Triple action — useful in areas with history of Core Rot.",
+          "added_year": 2023
+        }
+      ],
+      "pest_sprays": [
+        {
+          "active_ingredient": "Thiacloprid 21.7% EC",
+          "dose_per_200L": "100 ml",
+          "targets": [
+            "Thrips"
+          ],
+          "pre_harvest_interval_days": 30,
+          "proposed_ban": false,
+          "brand_names": [
+            "Alanto"
+          ],
+          "special_notes": "Apply before full bloom to avoid bee exposure.",
+          "added_year": 2023
+        }
+      ]
+    },
+    {
+      "stage_id": "petal_fall",
+      "stage_number": 3,
+      "stage_name": "Petal Fall / Pea Stage",
+      "visual_description": "Flower petals falling, small fruitlets visible (size of a pea)",
+      "approximate_calendar": "April – early May",
+      "critical_notes": [
+        "Apply insecticide in the evening — bees are still active during the day at this stage (WSU guidance)",
+        "Critical window: Scab and Powdery Mildew infection risk is highest here",
+        "Do NOT mix pesticides with micro-nutrients or growth regulators at this stage"
+      ],
+      "disease_sprays": [
+        {
+          "active_ingredient": "Carbendazim 50 WP",
+          "dose_per_200L": "100 gm",
+          "targets": [
+            "Scab"
+          ],
+          "pre_harvest_interval_days": 50,
+          "proposed_ban": true,
+          "ban_alternatives": [
+            "Hexaconazole 5 EC",
+            "Myclobutanil 10 WP",
+            "Flusilazole 40% EC"
+          ],
+          "brand_names": [
+            "Dhanustin",
+            "Bavistin",
+            "Mavistin",
+            "Derosal",
+            "Benfil",
+            "Gilzim",
+            "Carbestin",
+            "Goldstin"
+          ],
+          "special_notes": "PROPOSED BAN.",
+          "added_year": 2023
+        },
+        {
+          "active_ingredient": "Thiophanate Methyl 70 WP",
+          "dose_per_200L": "100 gm",
+          "targets": [
+            "Scab"
+          ],
+          "pre_harvest_interval_days": 3,
+          "proposed_ban": true,
+          "ban_alternatives": [
+            "Hexaconazole 5 EC",
+            "Myclobutanil 10 WP"
+          ],
+          "brand_names": [
+            "Roko",
+            "Topsin-M",
+            "Alert",
+            "Stop",
+            "Trust",
+            "Key"
+          ],
+          "special_notes": "PROPOSED BAN.",
+          "added_year": 2023
+        },
+        {
+          "active_ingredient": "Hexaconazole 5 EC",
+          "dose_per_200L": "100 ml",
+          "targets": [
+            "Scab"
+          ],
+          "pre_harvest_interval_days": 30,
+          "proposed_ban": false,
+          "brand_names": [
+            "Contaf",
+            "Hexzol",
+            "Sitara",
+            "Titan",
+            "Glow",
+            "Envil",
+            "Hexcon",
+            "Krizole"
+          ],
+          "added_year": 2023
+        },
+        {
+          "active_ingredient": "Myclobutanil 10 WP",
+          "dose_per_200L": "80 gm",
+          "targets": [
+            "Scab"
+          ],
+          "pre_harvest_interval_days": 21,
+          "proposed_ban": false,
+          "brand_names": [
+            "Systhane",
+            "Boon",
+            "Index",
+            "Grapple"
+          ],
+          "added_year": 2023
+        },
+        {
+          "active_ingredient": "Flusilazole 40% EC",
+          "dose_per_200L": "50 ml",
+          "targets": [
+            "Scab"
+          ],
+          "pre_harvest_interval_days": null,
+          "proposed_ban": false,
+          "brand_names": [
+            "Cursor 40% EC",
+            "Governor 40% EC"
+          ],
+          "added_year": 2023
+        },
+        {
+          "active_ingredient": "Mancozeb 60% + Pyraclostrobin 5% w/w WG",
+          "dose_per_200L": "700 gm",
+          "targets": [
+            "Scab",
+            "Powdery Mildew"
+          ],
+          "pre_harvest_interval_days": null,
+          "proposed_ban": true,
+          "ban_alternatives": [
+            "Boscalid 25.2% + Pyraclostrobin 12.8% w/w WG"
+          ],
+          "brand_names": [
+            "Laurel (UPL)"
+          ],
+          "special_notes": "Mancozeb component is proposed ban.",
+          "added_year": 2024
+        },
+        {
+          "active_ingredient": "Tebuconazole 50% + Trifloxystrobin 25% WG",
+          "dose_per_200L": "80 gm",
+          "targets": [
+            "Powdery Mildew"
+          ],
+          "pre_harvest_interval_days": null,
+          "proposed_ban": false,
+          "brand_names": [
+            "Nativo 75 WG"
+          ],
+          "added_year": 2023
+        },
+        {
+          "active_ingredient": "Tebuconazole 8% + Captan 32% SC",
+          "dose_per_200L": "500 ml",
+          "targets": [
+            "Scab",
+            "Powdery Mildew"
+          ],
+          "pre_harvest_interval_days": 10,
+          "proposed_ban": true,
+          "ban_alternatives": [
+            "Boscalid 25.2% + Pyraclostrobin 12.8% w/w WG",
+            "Metrafenone 500g/l SC"
+          ],
+          "brand_names": [
+            "Shamir",
+            "Kohicap Plus"
+          ],
+          "special_notes": "Captan component proposed ban.",
+          "added_year": 2023
+        },
+        {
+          "active_ingredient": "Boscalid 25.2% + Pyraclostrobin 12.8% w/w WG",
+          "dose_per_200L": "50 gm",
+          "targets": [
+            "Powdery Mildew"
+          ],
+          "pre_harvest_interval_days": 41,
+          "proposed_ban": false,
+          "brand_names": [
+            "Signum 38% WG"
+          ],
+          "special_notes": "Clean, non-banned Powdery Mildew option.",
+          "added_year": 2023
+        },
+        {
+          "active_ingredient": "Metrafenone 500g/l SC",
+          "dose_per_200L": "20 ml",
+          "targets": [
+            "Powdery Mildew"
+          ],
+          "pre_harvest_interval_days": 42,
+          "proposed_ban": false,
+          "brand_names": [
+            "Acrisio 50 SC"
+          ],
+          "special_notes": "New addition in 2026. Non-banned Powdery Mildew option.",
+          "added_year": 2026
+        },
+        {
+          "active_ingredient": "Carbendazim 12% + Mancozeb 63% WP",
+          "dose_per_200L": "500 gm",
+          "targets": [
+            "Scab",
+            "Powdery Mildew"
+          ],
+          "pre_harvest_interval_days": 20,
+          "proposed_ban": true,
+          "ban_alternatives": [
+            "Hexaconazole 5 EC",
+            "Boscalid 25.2% + Pyraclostrobin 12.8% w/w WG"
+          ],
+          "brand_names": [
+            "SAAF",
+            "Companion"
+          ],
+          "special_notes": "Both active ingredients proposed ban.",
+          "added_year": 2023
+        },
+        {
+          "active_ingredient": "Carbendazim 25% + Flusilazole 12.5% SE",
+          "dose_per_200L": "160 ml",
+          "targets": [
+            "Alternaria Leaf Spot"
+          ],
+          "pre_harvest_interval_days": 9,
+          "proposed_ban": true,
+          "ban_alternatives": [
+            "Flusilazole 40% EC alone",
+            "Metiram 70% WG"
+          ],
+          "brand_names": [
+            "Lustre 37.5% SE"
+          ],
+          "special_notes": "Carbendazim component proposed ban.",
+          "added_year": 2023
+        },
+        {
+          "active_ingredient": "Metiram 70% WG",
+          "dose_per_200L": "600 gm",
+          "targets": [
+            "Alternaria Leaf Spot",
+            "Scab"
+          ],
+          "pre_harvest_interval_days": null,
+          "proposed_ban": false,
+          "brand_names": [
+            "Polyram (BASF)"
+          ],
+          "special_notes": "Clean alternative for Alternaria. Added 2024.",
+          "added_year": 2024
+        },
+        {
+          "active_ingredient": "Chlorothalonil 40% + Difenoconazole 4% (44SC)",
+          "dose_per_200L": "160 ml",
+          "targets": [
+            "Alternaria Leaf Spot",
+            "Premature Leaf Fall"
+          ],
+          "pre_harvest_interval_days": 24,
+          "proposed_ban": false,
+          "brand_names": [
+            "Kavach Flo (Syngenta)"
+          ],
+          "special_notes": "New addition in 2026.",
+          "added_year": 2026
+        }
+      ],
+      "pest_sprays": [
+        {
+          "active_ingredient": "Spiromesifen 22.9% SC",
+          "dose_per_200L": "60 ml",
+          "targets": [
+            "Mites"
+          ],
+          "pre_harvest_interval_days": 30,
+          "proposed_ban": false,
+          "brand_names": [
+            "Oberon (Bayer)"
+          ],
+          "added_year": 2023
+        },
+        {
+          "active_ingredient": "Etoxazole 10% SC",
+          "dose_per_200L": "80 ml",
+          "targets": [
+            "Mites"
+          ],
+          "pre_harvest_interval_days": 43,
+          "proposed_ban": false,
+          "brand_names": [
+            "Borneo (Sumitomo)"
+          ],
+          "added_year": 2023
+        },
+        {
+          "active_ingredient": "Hexythiazox 5.45% EC",
+          "dose_per_200L": "200 ml",
+          "targets": [
+            "Mites"
+          ],
+          "pre_harvest_interval_days": 15,
+          "proposed_ban": false,
+          "brand_names": [
+            "Endurer (Coromandel)",
+            "Maiden (Biostadt)"
+          ],
+          "added_year": 2023
+        },
+        {
+          "active_ingredient": "Oxy-demeton methyl 25% EC",
+          "dose_per_200L": "200 ml",
+          "targets": [
+            "San Jose Scale"
+          ],
+          "pre_harvest_interval_days": null,
+          "proposed_ban": false,
+          "brand_names": [
+            "Metasystox (UPL)"
+          ],
+          "added_year": 2023
+        }
+      ]
+    },
+    {
+      "stage_id": "fruit_dev_walnut",
+      "stage_number": 4,
+      "stage_name": "Fruit Development — Walnut Size",
+      "visual_description": "Small green fruits about the size of a walnut (2–3 cm diameter)",
+      "approximate_calendar": "May – June",
+      "disease_sprays": [
+        {
+          "active_ingredient": "Mancozeb 75 WP",
+          "dose_per_200L": "600 gm",
+          "targets": [
+            "Scab"
+          ],
+          "pre_harvest_interval_days": null,
+          "proposed_ban": true,
+          "ban_alternatives": [
+            "Propineb 70 WP",
+            "Dodine 65 WP"
+          ],
+          "brand_names": [
+            "Indofil M-45",
+            "Dithane M-45",
+            "Dhanuka M-45",
+            "Hindustan M-45"
+          ],
+          "added_year": 2023
+        },
+        {
+          "active_ingredient": "Propineb 70 WP",
+          "dose_per_200L": "600 gm",
+          "targets": [
+            "Scab"
+          ],
+          "pre_harvest_interval_days": 30,
+          "proposed_ban": false,
+          "brand_names": [
+            "Antracol",
+            "Aaroosh"
+          ],
+          "added_year": 2023
+        },
+        {
+          "active_ingredient": "Dodine 65 WP",
+          "dose_per_200L": "150 gm",
+          "targets": [
+            "Scab"
+          ],
+          "pre_harvest_interval_days": 21,
+          "proposed_ban": false,
+          "brand_names": [
+            "Superstar",
+            "Syllit",
+            "Himdin",
+            "Tohfa",
+            "Noor"
+          ],
+          "weather_locked": {
+            "condition": "temp_above_30c",
+            "action": "suppress_from_recommendations"
+          },
+          "added_year": 2023
+        },
+        {
+          "active_ingredient": "Metiram 55% + Pyraclostrobin 5% WG",
+          "dose_per_200L": "200 gm",
+          "targets": [
+            "Alternaria Leaf Spot",
+            "Blight",
+            "Premature Leaf Fall"
+          ],
+          "pre_harvest_interval_days": 12,
+          "proposed_ban": false,
+          "brand_names": [
+            "Cabrio Top 60WG (BASF)"
+          ],
+          "added_year": 2023
+        },
+        {
+          "active_ingredient": "Tebuconazole 8% + Captan 32% W/V SC",
+          "dose_per_200L": "500 ml",
+          "targets": [
+            "Alternaria Leaf Spot",
+            "Premature Leaf Fall"
+          ],
+          "pre_harvest_interval_days": 10,
+          "proposed_ban": true,
+          "ban_alternatives": [
+            "Fluopyram 17.7% + Tebuconazole 17.7% w/w SC"
+          ],
+          "brand_names": [
+            "Shamir",
+            "Kohicap Plus"
+          ],
+          "added_year": 2023
+        },
+        {
+          "active_ingredient": "Tebuconazole 6.7% + Captan 26.9% SC",
+          "dose_per_200L": "600 ml",
+          "targets": [
+            "Alternaria Leaf Blotch"
+          ],
+          "pre_harvest_interval_days": null,
+          "proposed_ban": true,
+          "ban_alternatives": [
+            "Fluopyram 17.7% + Tebuconazole 17.7% w/w SC"
+          ],
+          "brand_names": [
+            "Kohicap Plus (alternate formulation)"
+          ],
+          "special_notes": "Newly highlighted in 2025. Captan component proposed ban.",
+          "added_year": 2025
+        },
+        {
+          "active_ingredient": "Fluxapyroxad 250g/l + Pyraclostrobin 250g/l 500 SC",
+          "dose_per_200L": "50 ml",
+          "targets": [
+            "Premature Leaf Fall"
+          ],
+          "pre_harvest_interval_days": 29,
+          "proposed_ban": false,
+          "brand_names": [
+            "Merivon 50 SC (BASF)"
+          ],
+          "added_year": 2023
+        },
+        {
+          "active_ingredient": "Fluopyram 17.7% w/w + Tebuconazole 17.7% w/w SC",
+          "dose_per_200L": "126 ml",
+          "targets": [
+            "Alternaria Leaf Spot",
+            "Premature Leaf Fall"
+          ],
+          "pre_harvest_interval_days": 30,
+          "proposed_ban": false,
+          "brand_names": [
+            "LUNA Experience (Bayer)"
+          ],
+          "special_notes": "Key clean alternative for Alternaria management.",
+          "added_year": 2023
+        },
+        {
+          "active_ingredient": "Dodine 40% SC",
+          "dose_per_200L": "150 ml",
+          "targets": [
+            "Alternaria Leaf Spot",
+            "Premature Leaf Fall"
+          ],
+          "pre_harvest_interval_days": 21,
+          "proposed_ban": false,
+          "brand_names": [
+            "Dodin O FIL"
+          ],
+          "weather_locked": {
+            "condition": "temp_above_30c",
+            "action": "suppress_from_recommendations"
+          },
+          "added_year": 2023
+        },
+        {
+          "active_ingredient": "Hexaconazole 4% + Zineb 68% WP",
+          "dose_per_200L": "500 gm",
+          "targets": [
+            "Alternaria Leaf Spot",
+            "Premature Leaf Fall",
+            "Scab"
+          ],
+          "pre_harvest_interval_days": 30,
+          "proposed_ban": false,
+          "brand_names": [
+            "Avtaar (Indofil)"
+          ],
+          "added_year": 2023
+        }
+      ],
+      "pest_sprays": [
+        {
+          "active_ingredient": "Horticultural Mineral Oil (HMO)",
+          "dose_per_200L": "2 litres",
+          "targets": [
+            "Mites"
+          ],
+          "proposed_ban": false,
+          "brand_names": [
+            "HP Spray Oil E",
+            "Servo Oil"
+          ],
+          "special_notes": "Second HMO application. Avoid within 15 days of Captan spray.",
+          "added_year": 2023
+        },
+        {
+          "active_ingredient": "Cyenopyrafen 30% SC",
+          "dose_per_200L": "50 ml",
+          "targets": [
+            "Mites"
+          ],
+          "pre_harvest_interval_days": null,
+          "proposed_ban": false,
+          "brand_names": [
+            "Kunoichi (Insecticides India)"
+          ],
+          "added_year": 2023
+        },
+        {
+          "active_ingredient": "Fenazaquin 10 EC",
+          "dose_per_200L": "50 ml",
+          "targets": [
+            "Mites"
+          ],
+          "pre_harvest_interval_days": 30,
+          "proposed_ban": false,
+          "brand_names": [
+            "Magister",
+            "Majestic (FIL)"
+          ],
+          "added_year": 2023
+        },
+        {
+          "active_ingredient": "Propargite 57 EC",
+          "dose_per_200L": "200 ml",
+          "targets": [
+            "Mites"
+          ],
+          "pre_harvest_interval_days": 9,
+          "proposed_ban": false,
+          "brand_names": [
+            "Omite (Dhanuka)",
+            "Simba (PI Industries)"
+          ],
+          "added_year": 2023
+        }
+      ]
+    },
+    {
+      "stage_id": "fruit_dev_20days",
+      "stage_number": 5,
+      "stage_name": "Fruit Development — 20 Days After Walnut Stage",
+      "visual_description": "Fruit growing beyond walnut size, approximately 4–5 cm",
+      "approximate_calendar": "June – July",
+      "disease_sprays": [
+        {
+          "active_ingredient": "Tebuconazole 50% + Trifloxystrobin 25% WG",
+          "dose_per_200L": "80 gm",
+          "targets": [
+            "Premature Leaf Fall"
+          ],
+          "pre_harvest_interval_days": null,
+          "proposed_ban": false,
+          "brand_names": [
+            "Nativo 75 WG (Bayer)"
+          ],
+          "added_year": 2023
+        },
+        {
+          "active_ingredient": "Chlorothalonil 40% + Difenoconazole 4% (44SC)",
+          "dose_per_200L": "160 ml",
+          "targets": [
+            "Premature Leaf Fall"
+          ],
+          "pre_harvest_interval_days": 24,
+          "proposed_ban": false,
+          "brand_names": [
+            "Kavach Flo (Syngenta)"
+          ],
+          "special_notes": "New addition in 2026.",
+          "added_year": 2026
+        },
+        {
+          "active_ingredient": "Propineb 70 WP",
+          "dose_per_200L": "600 gm",
+          "targets": [
+            "Scab"
+          ],
+          "pre_harvest_interval_days": 30,
+          "proposed_ban": false,
+          "brand_names": [
+            "Antracol",
+            "Aaroosh"
+          ],
+          "added_year": 2023
+        },
+        {
+          "active_ingredient": "Zineb 75 WP",
+          "dose_per_200L": "600 gm",
+          "targets": [
+            "Scab",
+            "Black Rot"
+          ],
+          "pre_harvest_interval_days": null,
+          "proposed_ban": true,
+          "ban_alternatives": [
+            "Propineb 70 WP"
+          ],
+          "brand_names": [
+            "Indofil Z-78",
+            "FIL Kanji"
+          ],
+          "special_notes": "PROPOSED BAN (Zenab/Zineb).",
+          "added_year": 2023
+        },
+        {
+          "active_ingredient": "Carbendazim 25% + Flusilazole 12.5% SE",
+          "dose_per_200L": "160 ml",
+          "targets": [
+            "Alternaria Leaf Spot",
+            "Premature Leaf Fall"
+          ],
+          "pre_harvest_interval_days": 9,
+          "proposed_ban": true,
+          "ban_alternatives": [
+            "Metiram 70% WG",
+            "Chlorothalonil 40% + Difenoconazole 4% SC"
+          ],
+          "brand_names": [
+            "Lustre 37.5% SE"
+          ],
+          "added_year": 2023
+        },
+        {
+          "active_ingredient": "Mancozeb 60% + Pyraclostrobin 5% w/w WG",
+          "dose_per_200L": "700 gm",
+          "targets": [
+            "Premature Leaf Fall",
+            "Marssonina Leaf Blotch",
+            "Scab"
+          ],
+          "pre_harvest_interval_days": null,
+          "proposed_ban": true,
+          "ban_alternatives": [
+            "Metiram 70% WG"
+          ],
+          "brand_names": [
+            "Laurel (UPL)"
+          ],
+          "added_year": 2024
+        },
+        {
+          "active_ingredient": "Metiram 70% WG",
+          "dose_per_200L": "600 gm",
+          "targets": [
+            "Marssonina Leaf Blotch",
+            "Alternaria Leaf Spot",
+            "Scab"
+          ],
+          "pre_harvest_interval_days": null,
+          "proposed_ban": false,
+          "brand_names": [
+            "Polyram (BASF)"
+          ],
+          "special_notes": "Key non-banned option for Marssonina Leaf Blotch — an emerging disease in HP (prominent from 2025 onwards).",
+          "added_year": 2024
+        }
+      ],
+      "pest_sprays": [
+        {
+          "active_ingredient": "Hexythiazox 5.45% EC",
+          "dose_per_200L": "200 ml",
+          "targets": [
+            "Mites"
+          ],
+          "pre_harvest_interval_days": 15,
+          "proposed_ban": false,
+          "brand_names": [
+            "Endurer",
+            "Maiden"
+          ],
+          "added_year": 2023
+        },
+        {
+          "active_ingredient": "Spiromesifen 22.9% SC",
+          "dose_per_200L": "60 ml",
+          "targets": [
+            "Mites"
+          ],
+          "pre_harvest_interval_days": 30,
+          "proposed_ban": false,
+          "brand_names": [
+            "Oberon (Bayer)"
+          ],
+          "added_year": 2023
+        },
+        {
+          "active_ingredient": "Propargite 42% + Hexythiazox 2% EC",
+          "dose_per_200L": "200 ml",
+          "targets": [
+            "Mites"
+          ],
+          "pre_harvest_interval_days": 15,
+          "proposed_ban": false,
+          "brand_names": [
+            "Ceasemite (Indofil)"
+          ],
+          "added_year": 2023
+        }
+      ]
+    },
+    {
+      "stage_id": "fruit_dev_second20days",
+      "stage_number": 6,
+      "stage_name": "Fruit Development — 20 Days After Stage 5",
+      "visual_description": "Fruit sizing up further, skin beginning to develop colour",
+      "approximate_calendar": "July – August",
+      "disease_sprays": [],
+      "pest_sprays": [
+        {
+          "active_ingredient": "Fenazaquin 10 EC",
+          "dose_per_200L": "50 ml",
+          "targets": [
+            "Mites"
+          ],
+          "pre_harvest_interval_days": 30,
+          "proposed_ban": false,
+          "brand_names": [
+            "Magister",
+            "Majestic"
+          ],
+          "added_year": 2023
+        },
+        {
+          "active_ingredient": "Propargite 57 EC",
+          "dose_per_200L": "200 ml",
+          "targets": [
+            "Mites"
+          ],
+          "pre_harvest_interval_days": 9,
+          "proposed_ban": false,
+          "brand_names": [
+            "Omite",
+            "Simba"
+          ],
+          "added_year": 2023
+        },
+        {
+          "active_ingredient": "Cyenopyrafen 30% SC",
+          "dose_per_200L": "50 ml",
+          "targets": [
+            "Mites"
+          ],
+          "pre_harvest_interval_days": null,
+          "proposed_ban": false,
+          "brand_names": [
+            "Kunoichi"
+          ],
+          "added_year": 2023
+        }
+      ]
+    },
+    {
+      "stage_id": "pre_harvest",
+      "stage_number": 7,
+      "stage_name": "Pre-Harvest (20–25 Days Before Harvest)",
+      "visual_description": "Fruit near full size, colour developing, 3–4 weeks from pick",
+      "approximate_calendar": "August – September (varies by altitude and variety)",
+      "critical_notes": [
+        "STRICTLY observe pre-harvest intervals (PHI) — sprays too close to harvest cause MRL violations and export rejection",
+        "Check PHI for every chemical before applying at this stage"
+      ],
+      "disease_sprays": [
+        {
+          "active_ingredient": "Captan 50 WP",
+          "dose_per_200L": "600 gm",
+          "targets": [
+            "Scab",
+            "Fly Speck",
+            "Bitter Rot"
+          ],
+          "pre_harvest_interval_days": null,
+          "proposed_ban": true,
+          "ban_alternatives": [
+            "Metiram 55% + Pyraclostrobin 5% WG",
+            "Fluopyram 17.7% + Tebuconazole 17.7% SC"
+          ],
+          "brand_names": [
+            "Captaf",
+            "Captax",
+            "Capgold",
+            "Kohicap"
+          ],
+          "added_year": 2023
+        },
+        {
+          "active_ingredient": "Ziram 27% SC",
+          "dose_per_200L": "600 ml",
+          "targets": [
+            "Scab"
+          ],
+          "pre_harvest_interval_days": null,
+          "proposed_ban": true,
+          "ban_alternatives": [
+            "Metiram 55% + Pyraclostrobin 5% WG"
+          ],
+          "brand_names": [
+            "Cuman L"
+          ],
+          "added_year": 2023
+        },
+        {
+          "active_ingredient": "Ziram 80% WP",
+          "dose_per_200L": "500 gm",
+          "targets": [
+            "Alternaria Leaf Spot",
+            "Premature Leaf Fall",
+            "Fly Speck"
+          ],
+          "pre_harvest_interval_days": 21,
+          "proposed_ban": true,
+          "ban_alternatives": [
+            "Metiram 55% + Pyraclostrobin 5% WG"
+          ],
+          "brand_names": [
+            "IPL Ziram-80",
+            "ZED-78"
+          ],
+          "special_notes": "Newly added in 2025.",
+          "added_year": 2025
+        },
+        {
+          "active_ingredient": "Metiram 55% + Pyraclostrobin 5% WG",
+          "dose_per_200L": "200 gm",
+          "targets": [
+            "Alternaria Leaf Spot",
+            "Blight"
+          ],
+          "pre_harvest_interval_days": 12,
+          "proposed_ban": false,
+          "brand_names": [
+            "Cabrio Top 60WG (BASF)"
+          ],
+          "special_notes": "Best non-banned option at this stage.",
+          "added_year": 2023
+        },
+        {
+          "active_ingredient": "Fluopyram 17.7% w/w + Tebuconazole 17.7% w/w SC",
+          "dose_per_200L": "126 ml",
+          "targets": [
+            "Alternaria Leaf Spot",
+            "Premature Leaf Fall",
+            "Fruit Rot"
+          ],
+          "pre_harvest_interval_days": 30,
+          "proposed_ban": false,
+          "brand_names": [
+            "LUNA Experience (Bayer)"
+          ],
+          "added_year": 2023
+        },
+        {
+          "active_ingredient": "Hexaconazole 4% + Zineb 68% WP",
+          "dose_per_200L": "500 gm",
+          "targets": [
+            "Alternaria Leaf Spot",
+            "Premature Leaf Fall",
+            "Scab"
+          ],
+          "pre_harvest_interval_days": 30,
+          "proposed_ban": false,
+          "brand_names": [
+            "Avtaar"
+          ],
+          "added_year": 2023
+        }
+      ],
+      "pest_sprays": [
+        {
+          "active_ingredient": "Oxy-demeton methyl 25% EC",
+          "dose_per_200L": "200 ml",
+          "targets": [
+            "San Jose Scale"
+          ],
+          "pre_harvest_interval_days": null,
+          "proposed_ban": false,
+          "brand_names": [
+            "Metasystox"
+          ],
+          "added_year": 2023
+        }
+      ]
+    },
+    {
+      "stage_id": "after_harvest",
+      "stage_number": 8,
+      "stage_name": "After Harvest",
+      "visual_description": "All fruit picked, leaves still on tree before leaf drop",
+      "approximate_calendar": "October – November",
+      "disease_sprays": [
+        {
+          "active_ingredient": "Copper Sulphate 47.15% + Mancozeb 30% WG",
+          "dose_per_200L": "1200 gm",
+          "targets": [
+            "Canker"
+          ],
+          "pre_harvest_interval_days": 184,
+          "proposed_ban": false,
+          "brand_names": [
+            "Cuprofix",
+            "DISPRESS (UPL)"
+          ],
+          "special_notes": "Applied after harvest — no PHI concern for current season.",
+          "added_year": 2023
+        }
+      ],
+      "pest_sprays": [
+        {
+          "active_ingredient": "Chlorpyriphos 20 EC",
+          "dose_per_200L": "400 ml (also: basin drench @ 4ml/litre)",
+          "targets": [
+            "Woolly Apple Aphid"
+          ],
+          "pre_harvest_interval_days": null,
+          "proposed_ban": true,
+          "ban_alternatives": [
+            "Consult horticulture department for registered alternatives"
+          ],
+          "brand_names": [
+            "Danusban",
+            "Durmet",
+            "Dursban",
+            "Force",
+            "Goldban",
+            "Massban",
+            "Navigator",
+            "Tricel"
+          ],
+          "special_notes": "PROPOSED BAN. Drench tree basin after harvest. Also controls Root Borer.",
+          "added_year": 2023
+        }
+      ]
+    }
+  ],
+  "special_protocols": {
+    "white_root_rot": {
+      "description": "Phytophthora or Rosellinia causing root decay",
+      "symptoms": "Sudden wilting, bark at collar turns brown, white fungal threads visible",
+      "treatment": [
+        "Drench basin area 3–4 times at onset of rainy season to depth 15–20 cm",
+        "Carbendazim 0.1% OR Aureofungin (0.05%) + Copper Sulphate (0.05%)",
+        "In winters: expose root system to sunlight, remove infected portions, apply Bordeaux paint"
+      ]
+    },
+    "collar_rot": {
+      "description": "Phytophthora collar rot near soil line",
+      "symptoms": "Reddish-brown bark lesion at collar, gum oozing, crown decline",
+      "treatment": [
+        "Scarify wounds near collar region",
+        "Apply Bordeaux paint or copper fungicide paint during winter",
+        "Drench basin 30cm from trunk with Mancozeb 0.3% during rainy season"
+      ]
+    },
+    "hail_damage": {
+      "description": "Emergency protocol after hailstorm",
+      "steps": [
+        {
+          "timing": "Immediately",
+          "action": "Spray Carbendazim 100 gm OR Mancozeb 600 gm in 200L water"
+        },
+        {
+          "timing": "Within 3–4 days",
+          "action": "Spray Boric acid 200 gm + Zinc Sulphate 500 gm + Quick lime 250 gm in 200L water"
+        },
+        {
+          "timing": "10–12 days after hail",
+          "action": "Spray micro-nutrients (Agromin / Multiplex / Microvit) 400–600 gm per 200L + Urea 1 kg per 200L"
+        }
+      ]
+    },
+    "fruit_size_enhancement": {
+      "description": "Gibberellin application to improve L:D ratio",
+      "timing": "80–90% king flower bloom stage",
+      "treatment": "Gibberellic Acid (GA4+GA7) 1.8% + Benzyladenine (BA) 1.8% @ 277–333 ml per 200 litres water (25–30 ppm)"
+    }
+  },
+  "weather_rules": {
+    "global_rules": [
+      {
+        "rule_id": "rain_repeat",
+        "trigger": "rainfall > 5mm within 12 hours of spray application",
+        "action": "Push alert: spray was likely washed off — re-spray within 7 days",
+        "app_behaviour": "Set reminder 7 days after spray. If rain detected on spray day, fire immediate alert."
+      },
+      {
+        "rule_id": "dodine_temp_lock",
+        "trigger": "max_temperature_forecast > 30°C",
+        "action": "Remove Dodine 65 WP and Dodine 40% SC from all recommendations for that day",
+        "app_behaviour": "Check daily max temp from weather API. Suppress Dodine if threshold met."
+      },
+      {
+        "rule_id": "beneficial_insect_window",
+        "trigger": "date between April 1 and June 30",
+        "action": "Add advisory note: minimise insecticide sprays — Lady bird beetles, Syrphid flies active",
+        "app_behaviour": "Show seasonal banner; push insecticide recommendations to 'last resort' in UI."
+      },
+      {
+        "rule_id": "hail_protocol_trigger",
+        "trigger": "hail reported by farmer OR hail forecast confidence > 70%",
+        "action": "Push emergency hail protocol notification immediately",
+        "app_behaviour": "Alert farmer within 30 minutes of hail detection. Show 3-step hail protocol."
+      },
+      {
+        "rule_id": "scab_infection_window",
+        "trigger": "leaf wetness hours >= 9 at temperature 13–24°C (Mills Table)",
+        "action": "SCAB INFECTION ALERT: high infection risk. Spray within 24 hours if not done in last 12 days",
+        "app_behaviour": "Requires leaf wetness data from API (Tomorrow.io provides this). Critical intelligence — this is the key gap vs. official schedule.",
+        "wsu_insight": "WSU: Apple scab management is tightly weather-dependent. HP schedule says 'spray when disease risk' — this rule makes that precise."
+      },
+      {
+        "rule_id": "pre_bloom_frost",
+        "trigger": "min_temperature_forecast < 0°C during Pink Bud or Bloom stage",
+        "action": "FROST WARNING: blossom damage risk. Do not spray — conserve tree energy.",
+        "app_behaviour": "Suppress spray reminders during frost events. Alert farmer to frost protection options."
+      },
+      {
+        "rule_id": "captan_oil_interval",
+        "trigger": "HMO (mineral oil) spray logged within last 15 days",
+        "action": "Remove all Captan-containing products from recommendations",
+        "app_behaviour": "Track spray log. Auto-suppress Captan for 15 days after any logged HMO spray."
+      }
+    ]
+  },
+  "year_over_year_changes": {
+    "2023_to_2024": [
+      "Added Mancozeb 60% + Pyraclostrobin 5% WG at Petal Fall stage",
+      "Added Metiram 70% WG at Petal Fall and Stage 5",
+      "Standardised dosage formatting"
+    ],
+    "2024_to_2025": [
+      "Tebuconazole 6.7% + Captan 26.9% SC highlighted as new option at Walnut stage (Alternaria Leaf Blotch)",
+      "Ziram 80% WP added at Pre-Harvest stage",
+      "Marssonina Leaf Blotch formally named as distinct disease target (emerging disease in HP)",
+      "Mancozeb 60% + Pyraclostrobin 5% WG now also targets Marssonina"
+    ],
+    "2025_to_2026": [
+      "Metrafenone 500g/l SC (Acrisio 50 SC) added at Petal Fall — new Powdery Mildew option",
+      "Chlorothalonil 40% + Difenoconazole 4% 44SC (Kavach Flo) added at Petal Fall and Stage 5",
+      "Formatting standardised — dosage column renamed to 'Doses per 200 litre of water'",
+      "Growth stage visual guide updated"
+    ],
+    "trend_analysis": "The schedule has consistently added more non-banned alternatives each year. Proposed ban chemicals remain listed but are being flanked by clean alternatives. Marssonina Leaf Blotch is the emerging new disease pressure. The app should flag the trend: every year, ban-list chemicals are used less; transition farmers NOW to build clean spray habits."
+  },
+  "washington_state_learnings": {
+    "source": "WSU Extension Spokane County C041, revised 2023/2024",
+    "key_principles_to_adopt": [
+      {
+        "principle": "Identify before you spray",
+        "wsu_text": "Do not apply pesticides until a specific insect or disease has been positively identified",
+        "app_feature": "Add symptom identification flow in onboarding. Show photo-based disease ID guide. Ask: what are you seeing on your trees? before recommending a spray."
+      },
+      {
+        "principle": "Rotate chemical classes",
+        "wsu_text": "Vary products during the season and in following seasons to minimize pest resistance",
+        "app_feature": "Track spray log and detect if farmer is repeating same active ingredient class. Alert: you have used Tebuconazole 3 times — consider switching to a different fungicide class."
+      },
+      {
+        "principle": "Pollinator protection at bloom",
+        "wsu_text": "Apply in the evening after bees have stopped foraging",
+        "app_feature": "During Bloom stage (Stage 3 petal fall), add timing advisory: spray insecticides only after 6pm."
+      },
+      {
+        "principle": "Weather-triggered reapplication",
+        "wsu_text": "Reapply after brief, heavy rainfall or showers of longer duration",
+        "app_feature": "Already in HP schedule rules — WSU confirms this. Implement rain_repeat rule as high priority."
+      },
+      {
+        "principle": "Pheromone traps for early detection",
+        "wsu_text": "Methyl eugenol pheromone trap may be installed to check fruit fly attack",
+        "app_feature": "Phase 2 feature: prompt farmer to set traps at season start. Farmer reports trap catches → app adjusts insecticide recommendation timing."
+      },
+      {
+        "principle": "Cultural control first",
+        "wsu_text": "Remove infested apples from tree, seal in bags, leave in sun to kill larvae",
+        "app_feature": "Add cultural control tips alongside every chemical recommendation. Reduces dependency on chemicals, reduces cost, improves IPM profile."
+      }
+    ],
+    "key_differences_hp_vs_washington": [
+      "Washington focuses on Codling Moth, Apple Maggot, Brown Marmorated Stink Bug — these are less prevalent in HP",
+      "HP focuses on San Jose Scale, Mites, Woolly Apple Aphid — different pest complex",
+      "Washington uses no-spray defaults for many diseases (cultural management only) — HP is more chemical-intensive",
+      "Washington schedule is homeowner-focused (trees under 10ft) — HP is commercial orchard scale",
+      "Washington has legal requirement to control certain pests — HP is voluntary advisory"
+    ]
+  },
+  "app_data_model": {
+    "description": "Suggested database schema for the spray advisory app",
+    "farmer": {
+      "fields": [
+        "farmer_id",
+        "name",
+        "phone_whatsapp",
+        "village",
+        "district",
+        "altitude_zone",
+        "language_preference"
+      ],
+      "altitude_zones": [
+        {
+          "id": "low",
+          "label": "Low Belt",
+          "range_m": "below 1800",
+          "examples": "Bilaspur, lower Mandi, Hamirpur"
+        },
+        {
+          "id": "mid",
+          "label": "Mid Belt",
+          "range_m": "1800–2400",
+          "examples": "Lower Shimla, Kullu valley, Rohru"
+        },
+        {
+          "id": "high",
+          "label": "High Belt",
+          "range_m": "above 2400",
+          "examples": "Upper Shimla, Kinnaur, Lahaul"
+        }
+      ]
+    },
+    "orchard": {
+      "fields": [
+        "orchard_id",
+        "farmer_id",
+        "area_bigha",
+        "primary_variety",
+        "rootstock_type",
+        "irrigation_available",
+        "lat",
+        "lng",
+        "altitude_m"
+      ]
+    },
+    "spray_log": {
+      "fields": [
+        "log_id",
+        "orchard_id",
+        "spray_date",
+        "growth_stage_id",
+        "active_ingredient",
+        "brand_name_used",
+        "dose_applied",
+        "area_covered",
+        "notes"
+      ]
+    },
+    "weather_event": {
+      "fields": [
+        "event_id",
+        "orchard_id",
+        "event_type",
+        "event_date",
+        "severity",
+        "alert_sent",
+        "farmer_acknowledged"
+      ]
+    }
+  }
+}
