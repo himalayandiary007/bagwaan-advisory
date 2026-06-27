@@ -1,14 +1,12 @@
 // Bagwaan — HP Apple Advisory Bot
-// WhatsApp via Meta Cloud API (free tier — no Twilio needed)
+// WhatsApp via Interakt API (14-day free trial for POC)
+// Long-term: switch to Meta Cloud API once Meta account restriction is resolved
 //
 // Message flow:
-//   Farmer texts your WhatsApp number
-//   → Meta sends JSON POST to /webhook on this server
+//   Farmer texts your Interakt WhatsApp number
+//   → Interakt sends JSON POST to /webhook on this server
 //   → handleMessage() processes it
-//   → We call Meta Graph API to send the reply
-//
-// Meta test mode: add up to 5 phone numbers to whitelist on Meta dashboard.
-// No Business verification needed for testing — works immediately.
+//   → We call Interakt API to send the reply
 
 require('dotenv').config();
 
@@ -22,122 +20,95 @@ const db = require('./db');
 const app = express();
 app.use(bodyParser.json());
 
-const PHONE_NUMBER_ID = process.env.META_PHONE_NUMBER_ID;  // from Meta dashboard
-const ACCESS_TOKEN    = process.env.META_ACCESS_TOKEN;     // temporary or permanent token
-const VERIFY_TOKEN    = process.env.META_VERIFY_TOKEN;     // any string you choose
+const INTERAKT_API_KEY = process.env.INTERAKT_API_KEY;  // from Interakt dashboard → Settings → Developer
 
-// ── Webhook Verification (one-time setup) ────────────────────────────────────
-// When you enter your webhook URL in Meta dashboard, Meta sends a GET request
-// to verify you own the server. This responds with the challenge to confirm it.
-app.get('/webhook', (req, res) => {
-  const mode      = req.query['hub.mode'];
-  const token     = req.query['hub.verify_token'];
-  const challenge = req.query['hub.challenge'];
-
-  if (mode === 'subscribe' && token === VERIFY_TOKEN) {
-    console.log('[META] Webhook verified');
-    res.status(200).send(challenge);
-  } else {
-    console.error('[META] Webhook verification failed — check META_VERIFY_TOKEN in .env');
-    res.sendStatus(403);
-  }
-});
-
-// ── Incoming Messages ─────────────────────────────────────────────────────────
-// Meta sends ALL events here: messages, delivery receipts, read receipts.
-// We only care about text messages — everything else is ignored.
+// ── Incoming Messages from Interakt ──────────────────────────────────────────
+// Interakt sends POST to /webhook when farmer texts your WhatsApp number.
+// No GET verification needed (unlike Meta Cloud API).
 app.post('/webhook', async (req, res) => {
-  // Always respond 200 immediately — Meta will retry if you don't
+  // Always respond 200 immediately — Interakt retries on failure
   res.status(200).send('OK');
 
   try {
     const body = req.body;
 
-    // Validate it's a WhatsApp message event
-    if (body.object !== 'whatsapp_business_account') return;
+    // Interakt wraps everything in { type: 'message', data: { ... } }
+    if (body.type !== 'message') return;
 
-    const entry   = body.entry?.[0];
-    const change  = entry?.changes?.[0];
-    const value   = change?.value;
+    const data = body.data;
+    if (!data || !data.sender) return;
 
-    // Ignore delivery/read status updates
-    if (!value?.messages) return;
+    const from = data.sender.phone;  // '919816001234' — no + prefix
+    if (!from) return;
 
-    const message = value.messages[0];
-
-    const from = message.from;   // '919816001234' — no + prefix
+    const msgType = data.type;  // 'Text', 'Image', 'Audio', 'Document', etc.
 
     // ── Image message → disease detection ──────────────────────────────────
-    if (message.type === 'image') {
+    if (msgType === 'Image') {
       console.log(`[IMG] +${from}: image received`);
 
-      // Look up farmer's language preference
       const { farmer } = await db.getOrCreateFarmer(from);
       const lang = farmer.language || 'hi';
 
-      // Send acknowledgement immediately — Gemini takes 5-10 seconds
       await sendMessage(from, lang === 'hi'
         ? '🔍 तस्वीर मिली। रोग पहचान हो रही है... (10-15 सेकंड रुकें)'
         : '🔍 Image received. Analysing for disease... (please wait 10-15 seconds)'
       );
 
-      const reply = await handleImageMessage(from, message, lang);
+      // Pass the full data object — diseaseDetector extracts the media URL from it
+      const reply = await handleImageMessage(from, data, lang);
       if (reply) await sendMessage(from, reply);
       return;
     }
 
-    // ── Voice notes / documents / other — politely decline ─────────────────
-    if (message.type !== 'text') {
+    // ── Voice notes / docs / other — politely decline ──────────────────────
+    if (msgType !== 'Text') {
       await sendMessage(from, 'केवल text या photo भेजें। / Please send text or a photo only.');
       return;
     }
 
     // ── Text message → conversation state machine ───────────────────────────
-    const msgText = message.text.body;
+    const msgText = data.message;
+    if (!msgText) return;
+
     console.log(`[IN]  +${from}: ${msgText}`);
 
     const reply = await handleMessage(from, msgText);
-    if (reply) {
-      await sendMessage(from, reply);
-    }
+    if (reply) await sendMessage(from, reply);
 
   } catch (err) {
-    // Log but never crash — Meta will retry on 5xx responses
     console.error('[ERROR] Webhook handler:', err.message);
   }
 });
 
-// ── Send Message via Meta Graph API ──────────────────────────────────────────
+// ── Send Message via Interakt API ─────────────────────────────────────────────
 async function sendMessage(to, text) {
-  const MAX_LENGTH = 4000; // WhatsApp allows 4096 chars
+  const MAX_LENGTH = 4000;
   const chunks = splitMessage(text, MAX_LENGTH);
 
   for (const chunk of chunks) {
     try {
       await axios.post(
-        `https://graph.facebook.com/v20.0/${PHONE_NUMBER_ID}/messages`,
+        'https://api.interakt.ai/v1/public/message/',
         {
-          messaging_product: 'whatsapp',
-          to,
-          type: 'text',
-          text: { body: chunk },
+          userId: to,
+          fullPhoneNumber: to,
+          callbackData: 'bagwaan_reply',
+          type: 'Text',
+          data: { message: chunk },
         },
         {
           headers: {
-            Authorization: `Bearer ${ACCESS_TOKEN}`,
+            // Interakt uses Basic auth: base64(api_key + ':')
+            Authorization: `Basic ${Buffer.from(INTERAKT_API_KEY + ':').toString('base64')}`,
             'Content-Type': 'application/json',
           },
         }
       );
       console.log(`[OUT] +${to}: ${chunk.substring(0, 60)}...`);
     } catch (err) {
-      const errData = err.response?.data?.error;
-      if (errData) {
-        console.error(`[META ERROR] ${errData.code}: ${errData.message}`);
-      } else {
-        console.error('[META ERROR]', err.message);
-      }
-      // Don't crash on send failure — log and continue
+      const errData = err.response?.data;
+      console.error('[INTERAKT ERROR]', errData ? JSON.stringify(errData) : err.message);
     }
 
     if (chunks.length > 1) {

@@ -10,7 +10,6 @@
 const axios = require('axios');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
 
-const ACCESS_TOKEN = process.env.META_ACCESS_TOKEN;
 const GEMINI_API_KEY = process.env.GOOGLE_GEMINI_API_KEY;
 
 // Load spray data once at startup
@@ -26,15 +25,18 @@ try {
 
 /**
  * Called from server.js when farmer sends an image message.
- * @param {string} from     - farmer's phone number e.g. '919816001234'
- * @param {object} message  - Meta webhook message object (type: 'image')
- * @param {string} lang     - 'hi' or 'en'
- * @returns {string}        - reply to send back to farmer
+ * @param {string} from   - farmer's phone number e.g. '919816001234'
+ * @param {object} data   - Interakt webhook data object (data.type === 'Image')
+ * @param {string} lang   - 'hi' or 'en'
+ * @returns {string}      - reply to send back to farmer
  */
-async function handleImageMessage(from, message, lang = 'hi') {
+async function handleImageMessage(from, data, lang = 'hi') {
   try {
-    // Step 1 — Download image from Meta
-    const { base64, mimeType } = await downloadImageFromMeta(message.image.id);
+    // Step 1 — Download image from Interakt media URL
+    const mediaUrl  = data.media?.url;
+    const mimeType  = data.media?.mime_type || 'image/jpeg';
+    if (!mediaUrl) throw new Error('No media URL in Interakt image payload');
+    const { base64 } = await downloadImage(mediaUrl);
 
     // Step 2 — Analyse with Gemini Vision
     const diagnosis = await analyseWithGemini(base64, mimeType, lang);
@@ -59,25 +61,13 @@ async function handleImageMessage(from, message, lang = 'hi') {
   }
 }
 
-// ── Step 1: Download Image from Meta ─────────────────────────────────────────
+// ── Step 1: Download Image from Interakt ─────────────────────────────────────
+// Interakt provides a direct URL — no auth header needed (unlike Meta)
 
-async function downloadImageFromMeta(mediaId) {
-  // First get the download URL for the media ID
-  const metaRes = await axios.get(
-    `https://graph.facebook.com/v20.0/${mediaId}`,
-    { headers: { Authorization: `Bearer ${ACCESS_TOKEN}` } }
-  );
-  const mediaUrl = metaRes.data.url;
-  const mimeType = metaRes.data.mime_type || 'image/jpeg';
-
-  // Download the actual image bytes
-  const imgRes = await axios.get(mediaUrl, {
-    headers: { Authorization: `Bearer ${ACCESS_TOKEN}` },
-    responseType: 'arraybuffer',
-  });
-
+async function downloadImage(url) {
+  const imgRes = await axios.get(url, { responseType: 'arraybuffer' });
   const base64 = Buffer.from(imgRes.data).toString('base64');
-  return { base64, mimeType };
+  return { base64 };
 }
 
 // ── Step 2: Analyse with Gemini Flash ────────────────────────────────────────
